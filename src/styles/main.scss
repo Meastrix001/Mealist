@@ -1,0 +1,10 @@
+// Base
+@use "base/breakpoints";
+@use "base/reset" as *;
+@use "base/global";
+
+// Components
+@use "../components/index.scss";
+
+// Pages
+@use "../app/pages";

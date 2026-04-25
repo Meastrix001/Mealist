@@ -1,0 +1,35 @@
+{
+  "name": "mealist",
+  "description": "Mealist - fast, simple, ad-free AI recipes.",
+  "version": "0.1.0",
+  "private": true,
+  "license": "MIT",
+  "scripts": {
+    "dev": "next dev --turbopack",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@radix-ui/react-icons": "^1.3.2",
+    "@radix-ui/themes": "^3.2.1",
+    "@vercel/analytics": "^1.5.0",
+    "@vercel/speed-insights": "^1.2.0",
+    "firebase": "^12.1.0",
+    "next": "^16.0.7",
+    "react": "^19.2.1",
+    "react-dom": "^19.2.1",
+    "react-icons": "^5.5.0",
+    "sass": "^1.88.0",
+    "zustand": "^5.0.12"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "15.3.2",
+    "typescript": "^5"
+  }
+}

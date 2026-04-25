@@ -1,0 +1,46 @@
+.pin-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 999px;
+  border: none;
+  background: rgba(27, 23, 20, 0.55);
+  color: #fff;
+  backdrop-filter: blur(6px);
+  transition: background 0.15s, color 0.15s, transform 0.15s;
+
+  &:hover {
+    background: rgba(27, 23, 20, 0.75);
+    transform: scale(1.1);
+  }
+
+  &--active {
+    background: var(--ml-accent);
+    color: #fff;
+
+    &:hover {
+      background: var(--ml-accent);
+    }
+  }
+
+  // When used inside recipe-detail header (no backdrop needed)
+  .recipe-detail__actions & {
+    background: var(--ml-surface);
+    color: var(--ml-muted);
+    border: 1.5px solid var(--ml-border);
+    backdrop-filter: none;
+
+    &:hover {
+      border-color: var(--ml-accent);
+      color: var(--ml-accent);
+    }
+
+    &.pin-btn--active {
+      background: var(--ml-accent-soft);
+      color: var(--ml-accent);
+      border-color: var(--ml-accent);
+    }
+  }
+}

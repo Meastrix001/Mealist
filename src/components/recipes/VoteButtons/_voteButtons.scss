@@ -1,0 +1,42 @@
+.vote-btns {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+
+  &__btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.3rem 0.75rem;
+    border-radius: 999px;
+    border: 1.5px solid var(--ml-border);
+    background: var(--ml-surface);
+    color: var(--ml-muted);
+    font-size: 0.82rem;
+    font-weight: 600;
+    transition: border-color 0.15s, color 0.15s, background 0.15s;
+
+    span {
+      min-width: 0.6rem;
+      text-align: left;
+    }
+
+    &:hover:not(:disabled) {
+      border-color: var(--ml-accent);
+      color: var(--ml-accent);
+      background: var(--ml-accent-soft);
+    }
+
+    &--active {
+      border-color: var(--ml-accent);
+      color: var(--ml-accent);
+      background: var(--ml-accent-soft);
+    }
+
+    &--down#{&}--active {
+      border-color: var(--ml-muted);
+      color: var(--ml-muted);
+      background: var(--ml-bg);
+    }
+  }
+}

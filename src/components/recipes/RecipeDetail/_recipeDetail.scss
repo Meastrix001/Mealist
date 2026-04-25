@@ -1,0 +1,248 @@
+.recipe-detail {
+  background: var(--ml-bg);
+
+  &__header {
+    text-align: center;
+    padding: 3rem 0 2rem;
+
+    @media (max-width: 640px) {
+      padding: 2rem 0 1.5rem;
+    }
+  }
+
+  &__actions {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    margin-bottom: 1.25rem;
+  }
+
+  &__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    justify-content: center;
+    margin-bottom: 1rem;
+  }
+
+  &__tag {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ml-accent);
+    padding: 0.25rem 0.65rem;
+    background: var(--ml-accent-soft);
+    border-radius: 999px;
+  }
+
+  &__title {
+    font-size: clamp(2.25rem, 5vw, 3.75rem);
+    font-weight: 500;
+    margin: 0 0 0.85rem;
+    color: var(--ml-fg);
+  }
+
+  &__meta {
+    display: inline-flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.65rem;
+    font-size: 0.95rem;
+    color: var(--ml-muted);
+
+    strong {
+      color: var(--ml-fg);
+      font-weight: 600;
+    }
+  }
+
+  &__dot {
+    color: var(--ml-border);
+  }
+
+  &__image {
+    position: relative;
+    max-width: 960px;
+    margin: 0 auto 3rem;
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+    border-radius: 16px;
+    background: var(--ml-accent-soft);
+
+    @media (max-width: 768px) {
+      border-radius: 0;
+      margin-bottom: 2rem;
+    }
+  }
+
+  &__img {
+    object-fit: cover;
+  }
+
+  &__body {
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    gap: 4rem;
+    padding-bottom: 5rem;
+    max-width: 960px;
+
+    @media (max-width: 860px) {
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+    }
+  }
+
+  &__section-title {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin: 0 0 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--ml-border);
+  }
+
+  &__ingredients {
+    position: sticky;
+    top: 88px;
+    align-self: start;
+
+    @media (max-width: 860px) {
+      position: static;
+    }
+  }
+
+  &__controls {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+  }
+
+  &__servings {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  &__qty-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 999px;
+    border: 1.5px solid var(--ml-border);
+    background: var(--ml-surface);
+    color: var(--ml-fg);
+    font-size: 1.1rem;
+    line-height: 1;
+    transition: border-color 0.15s, background 0.15s;
+
+    &:hover {
+      border-color: var(--ml-accent);
+      background: var(--ml-accent-soft);
+    }
+  }
+
+  &__qty-label {
+    font-size: 0.9rem;
+    color: var(--ml-muted);
+    white-space: nowrap;
+
+    strong {
+      color: var(--ml-fg);
+      font-weight: 600;
+    }
+  }
+
+  &__unit-toggle {
+    display: flex;
+    border: 1.5px solid var(--ml-border);
+    border-radius: 999px;
+    overflow: hidden;
+  }
+
+  &__unit-btn {
+    padding: 0.3rem 0.85rem;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    background: var(--ml-surface);
+    color: var(--ml-muted);
+    border: none;
+    transition: background 0.15s, color 0.15s;
+
+    &--active {
+      background: var(--ml-accent);
+      color: #fff;
+    }
+
+    &:not(&--active):hover {
+      background: var(--ml-accent-soft);
+      color: var(--ml-fg);
+    }
+  }
+
+  &__ingredient-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  &__ingredient {
+    display: flex;
+    align-items: baseline;
+    gap: 0.75rem;
+    padding: 0.55rem 0;
+    border-bottom: 1px dashed var(--ml-border);
+    font-size: 0.95rem;
+  }
+
+  &__amount {
+    min-width: 5rem;
+    font-weight: 600;
+    color: var(--ml-accent);
+  }
+
+  &__item {
+    color: var(--ml-fg);
+  }
+
+  &__step-list {
+    list-style: none;
+    counter-reset: step;
+    padding: 0;
+    margin: 0;
+  }
+
+  &__step {
+    display: grid;
+    grid-template-columns: 2rem 1fr;
+    gap: 1rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--ml-border);
+    font-size: 1rem;
+    line-height: 1.6;
+
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+
+  &__step-num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 999px;
+    background: var(--ml-accent);
+    color: #fff;
+    font-weight: 600;
+    font-size: 0.9rem;
+  }
+}

@@ -1,0 +1,19 @@
+.recipe-feed {
+  padding: 1rem 0 4rem;
+
+  &--empty {
+    text-align: center;
+    color: var(--ml-muted);
+    padding: 4rem 1rem;
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+
+    @media (max-width: 640px) {
+      grid-template-columns: 1fr;
+    }
+  }
+}

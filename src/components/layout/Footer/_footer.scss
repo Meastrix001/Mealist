@@ -1,0 +1,20 @@
+.footer {
+  background: var(--ml-fg);
+  color: rgba(248, 243, 236, 0.72);
+  margin-top: 4rem;
+
+  &__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2rem 1.5rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+    font-size: 0.8125rem;
+    letter-spacing: 0.02em;
+  }
+
+  &__meta {
+    opacity: 0.55;
+  }
+}

@@ -1,0 +1,104 @@
+.recipe-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: var(--ml-surface);
+  border: 1px solid var(--ml-border);
+  border-radius: 14px;
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 32px -16px rgba(27, 23, 20, 0.28);
+    border-color: var(--ml-accent);
+  }
+
+  &__link {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    color: inherit;
+  }
+
+  &__pin {
+    position: absolute;
+    top: 0.6rem;
+    right: 0.6rem;
+    z-index: 1;
+  }
+
+  &__image {
+    position: relative;
+    aspect-ratio: 4 / 3;
+    background: var(--ml-accent-soft);
+    overflow: hidden;
+  }
+
+  &__img {
+    object-fit: cover;
+
+    &--placeholder {
+      background: linear-gradient(135deg, var(--ml-accent-soft), var(--ml-border));
+    }
+  }
+
+  &__meta {
+    position: absolute;
+    bottom: 0.75rem;
+    left: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  &__time {
+    background: rgba(27, 23, 20, 0.72);
+    color: #fff;
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 0.3rem 0.6rem;
+    border-radius: 999px;
+    backdrop-filter: blur(6px);
+  }
+
+  &__body {
+    padding: 1rem 1.1rem 1.2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+
+  &__title {
+    font-family: var(--font-heading);
+    font-size: 1.375rem;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    line-height: 1.15;
+    color: var(--ml-fg);
+    margin: 0;
+  }
+
+  &__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+  }
+
+  &__tag {
+    font-size: 0.7rem;
+    letter-spacing: 0.04em;
+    text-transform: capitalize;
+    padding: 0.2rem 0.55rem;
+    border-radius: 999px;
+    background: var(--ml-bg);
+    color: var(--ml-muted);
+    border: 1px solid var(--ml-border);
+
+    &--accent {
+      background: var(--ml-accent-soft);
+      color: var(--ml-accent);
+      border-color: transparent;
+    }
+  }
+}
