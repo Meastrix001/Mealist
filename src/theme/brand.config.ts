@@ -8,7 +8,7 @@ export const brand = {
     tagline: "Fast, simple recipes. No ads. No scroll-traps.",
     description:
       "A growing library of quick, everyday recipes - every one under 30 minutes with 5 to 10 ingredients. Ad-free, AI-curated, and updated daily.",
-    email: "hello@mealist.app",
+    email: "",
     colorPrimary: "#C65D2F",
     colorSecondary: "#F5EFE6",
   },
