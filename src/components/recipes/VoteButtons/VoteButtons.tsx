@@ -21,7 +21,10 @@ const VoteButtonsInner = ({ recipeId, initialUpvotes = 0, initialDownvotes = 0 }
   const voteFromStore = useMealistStore((s) => s.voteMap[recipeId] ?? null);
   const setVote = useMealistStore((s) => s.setVote);
 
-  const [counts, setCounts] = useState({ up: initialUpvotes, down: initialDownvotes });
+  const [counts, setCounts] = useState({
+    up: voteFromStore === "upvote" ? Math.max(initialUpvotes, 1) : initialUpvotes,
+    down: voteFromStore === "downvote" ? Math.max(initialDownvotes, 1) : initialDownvotes,
+  });
   const [loading, setLoading] = useState(false);
 
   const current = voteFromStore;

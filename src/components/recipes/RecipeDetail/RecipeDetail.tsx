@@ -2,7 +2,7 @@ import Image from "next/image";
 import type { Recipe } from "@/api/firebase.config";
 import RecipeIngredients from "@/components/recipes/RecipeIngredients/RecipeIngredients";
 import PinButton from "@/components/recipes/PinButton/PinButton";
-import VoteButtons from "@/components/recipes/VoteButtons/VoteButtons";
+// import VoteButtons from "@/components/recipes/VoteButtons/VoteButtons";
 
 interface Props {
   recipe: Recipe;
@@ -28,7 +28,7 @@ const RecipeDetail = ({ recipe }: Props) => {
           </div>
           <h1 className="recipe-detail__title heading-serif">{recipe.title}</h1>
           <div className="recipe-detail__actions">
-            <VoteButtons recipeId={recipe.id} initialUpvotes={recipe.upvotes ?? 0} initialDownvotes={recipe.downvotes ?? 0} />
+            {/* <VoteButtons recipeId={recipe.id} initialUpvotes={recipe.upvotes ?? 0} initialDownvotes={recipe.downvotes ?? 0} /> */}
             <PinButton recipeId={recipe.id} />
           </div>
           <div className="recipe-detail__meta">
