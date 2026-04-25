@@ -1,5 +1,5 @@
 import RecipeFeed from "@/components/recipes/RecipeFeed/RecipeFeed";
-import GenerateButton from "@/components/admin/GenerateButton";
+// import GenerateButton from "@/components/admin/GenerateButton";
 import { getRecentRecipes } from "@/api/firebase.config";
 import { brand } from "@/theme/brand.config";
 
@@ -29,7 +29,7 @@ export default async function LandingPage() {
       <div className="container">
         <RecipeFeed recipes={recipes} />
       </div>
-      <GenerateButton />
+      {/* <GenerateButton /> */}
     </div>
   );
 }
