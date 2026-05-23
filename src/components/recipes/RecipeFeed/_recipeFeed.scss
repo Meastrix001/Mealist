@@ -7,6 +7,25 @@
     padding: 4rem 1rem;
   }
 
+  &__sentinel {
+    height: 1px;
+  }
+
+  &__loading {
+    display: flex;
+    justify-content: center;
+    padding: 1.5rem 0;
+  }
+
+  &__spinner {
+    width: 1.5rem;
+    height: 1.5rem;
+    border: 2px solid var(--ml-muted);
+    border-top-color: var(--ml-accent, currentColor);
+    border-radius: 50%;
+    animation: spin 0.7s linear infinite;
+  }
+
   &__grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));

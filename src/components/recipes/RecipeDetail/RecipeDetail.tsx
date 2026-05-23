@@ -1,6 +1,10 @@
+"use client";
+import { useState } from "react";
 import Image from "next/image";
 import type { Recipe } from "@/api/firebase.config";
 import RecipeIngredients from "@/components/recipes/RecipeIngredients/RecipeIngredients";
+import NutritionInfo from "@/components/recipes/NutritionInfo/NutritionInfo";
+import AllergenBadges from "@/components/recipes/AllergenBadges/AllergenBadges";
 import PinButton from "@/components/recipes/PinButton/PinButton";
 // import VoteButtons from "@/components/recipes/VoteButtons/VoteButtons";
 
@@ -13,7 +17,8 @@ const RecipeDetail = ({ recipe }: Props) => {
   const ingredients = recipe.ingredients ?? [];
   const steps = recipe.steps ?? [];
   const prepTime = recipe.prepTime ?? 0;
-  const servings = recipe.servings ?? 1;
+  const baseServings = recipe.servings ?? 1;
+  const [servings, setServings] = useState(baseServings);
 
   return (
     <article className="recipe-detail">
@@ -38,7 +43,7 @@ const RecipeDetail = ({ recipe }: Props) => {
                 <span className="recipe-detail__dot" aria-hidden>·</span>
               </>
             )}
-            <span>Serves <strong>{servings}</strong></span>
+            <span>Serves <strong>{baseServings}</strong></span>
             {ingredients.length > 0 && (
               <>
                 <span className="recipe-detail__dot" aria-hidden>·</span>
@@ -63,7 +68,20 @@ const RecipeDetail = ({ recipe }: Props) => {
       )}
 
       <div className="container recipe-detail__body">
-        <RecipeIngredients ingredients={ingredients} baseServings={servings} />
+        <div className="recipe-detail__left">
+          <RecipeIngredients
+            ingredients={ingredients}
+            baseServings={baseServings}
+            servings={servings}
+            onServingsChange={setServings}
+          />
+          {recipe.nutrition && (
+            <NutritionInfo nutrition={recipe.nutrition} servings={servings} />
+          )}
+          {recipe.allergens && recipe.allergens.length > 0 && (
+            <AllergenBadges allergens={recipe.allergens} />
+          )}
+        </div>
 
         <section className="recipe-detail__steps">
           <h2 className="recipe-detail__section-title">Steps</h2>

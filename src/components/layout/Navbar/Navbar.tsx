@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { brand } from "@/theme/brand.config";
+import SavedLink from "./SavedLink";
 
 const Navbar = () => {
   return (
@@ -12,6 +13,7 @@ const Navbar = () => {
           <Link href="/" className="navigation__link">
             All recipes
           </Link>
+          <SavedLink />
           <Link href="/about" className="navigation__link">
             About
           </Link>

@@ -2,14 +2,17 @@ import { create } from "zustand";
 import { persist } from "zustand/middleware";
 
 type Vote = "upvote" | "downvote";
+export type UnitSystem = "us" | "metric";
 
 interface MealistState {
   pinnedIds: string[];
   voteMap: Record<string, Vote>;
+  unit: UnitSystem;
   togglePin: (id: string) => void;
   isPinned: (id: string) => boolean;
   setVote: (id: string, vote: Vote | null) => void;
   getVote: (id: string) => Vote | null;
+  setUnit: (unit: UnitSystem) => void;
 }
 
 export const useMealistStore = create<MealistState>()(
@@ -17,6 +20,7 @@ export const useMealistStore = create<MealistState>()(
     (set, get) => ({
       pinnedIds: [],
       voteMap: {},
+      unit: "metric",
       togglePin: (id) =>
         set((s) => ({
           pinnedIds: s.pinnedIds.includes(id)
@@ -32,6 +36,7 @@ export const useMealistStore = create<MealistState>()(
           return { voteMap: next };
         }),
       getVote: (id) => get().voteMap[id] ?? null,
+      setUnit: (unit) => set({ unit }),
     }),
     { name: "mealist-store" }
   )

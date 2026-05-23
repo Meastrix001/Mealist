@@ -8,6 +8,7 @@ import {
   limit,
   orderBy,
   query,
+  startAfter,
   Timestamp,
   where,
 } from "firebase/firestore";
@@ -41,7 +42,18 @@ const RECIPES_COLLECTION = "mealist_recipes";
 export interface RecipeIngredient {
   amount: string;
   name: string;
+  shoppingName?: string;
   normalized?: string;
+  scalingFactor?: number;
+}
+
+export interface RecipeNutrition {
+  kcalPerServing: number;
+  kcalPer100g: number;
+  proteinG: number;
+  carbsG: number;
+  fatG: number;
+  fiberG: number;
 }
 
 export interface Recipe {
@@ -58,6 +70,8 @@ export interface Recipe {
   imageUrl: string;
   imagePrompt: string;
   createdAt: number;
+  allergens?: string[];
+  nutrition?: RecipeNutrition;
   upvotes?: number;
   downvotes?: number;
 }
@@ -75,6 +89,17 @@ export async function getRecentRecipes(count: number = 24): Promise<Recipe[]> {
   const q = query(
     collection(firestoreDB, RECIPES_COLLECTION),
     orderBy("createdAt", "desc"),
+    limit(count),
+  );
+  const snap = await getDocs(q);
+  return snap.docs.map((d) => snapshotToRecipe(d.id, d.data()));
+}
+
+export async function getRecipesAfter(afterTimestamp: number, count: number = 1): Promise<Recipe[]> {
+  const q = query(
+    collection(firestoreDB, RECIPES_COLLECTION),
+    orderBy("createdAt", "desc"),
+    startAfter(afterTimestamp),
     limit(count),
   );
   const snap = await getDocs(q);
@@ -109,6 +134,11 @@ export async function getRecipeById(id: string): Promise<Recipe | null> {
   const snap = await getDoc(ref);
   if (!snap.exists()) return null;
   return snapshotToRecipe(snap.id, snap.data());
+}
+
+export async function getRecipesByIds(ids: string[]): Promise<Recipe[]> {
+  const results = await Promise.all(ids.map((id) => getRecipeById(id)));
+  return results.filter((r): r is Recipe => r !== null);
 }
 
 export async function getAllRecipeSlugs(): Promise<string[]> {

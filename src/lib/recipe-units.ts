@@ -102,17 +102,27 @@ function formatNum(n: number): string {
   return fracSym ? `${whole}${fracSym}` : String(whole);
 }
 
+const UNIT_PLURAL: Record<string, string> = {
+  cup: 'cups', lb: 'lbs',
+};
+
+function pluralizeUnit(unit: string, amount: number): string {
+  return amount !== 1 && UNIT_PLURAL[unit] ? UNIT_PLURAL[unit] : unit;
+}
+
 function metricVolume(ml: number): string {
   if (ml >= 900) return `${(Math.round(ml / 100) / 10).toFixed(1).replace(/\.0$/, '')} L`;
   if (ml >= 100) return `${Math.round(ml / 10) * 10} ml`;
   if (ml >= 20) return `${Math.round(ml / 5) * 5} ml`;
-  return `${Math.round(ml)} ml`;
+  if (ml >= 5) return `${Math.round(ml)} ml`;
+  return `${Math.round(ml * 2) / 2} ml`;
 }
 
 function metricWeight(g: number): string {
   if (g >= 900) return `${(Math.round(g / 100) / 10).toFixed(1).replace(/\.0$/, '')} kg`;
   if (g >= 100) return `${Math.round(g / 10) * 10} g`;
-  return `${Math.round(g)} g`;
+  if (g >= 10) return `${Math.round(g)} g`;
+  return `${Math.round(g * 2) / 2} g`;
 }
 
 export function formatAmount(
@@ -132,7 +142,7 @@ export function formatAmount(
     parts.push(metricWeight(scaled * TO_G[unit]));
   } else {
     parts.push(formatNum(scaled));
-    if (unit) parts.push(unit);
+    if (unit) parts.push(pluralizeUnit(unit, scaled));
   }
 
   if (suffix) parts.push(suffix);

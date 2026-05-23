@@ -103,7 +103,7 @@
     border-bottom: 1px solid var(--ml-border);
   }
 
-  &__ingredients {
+  &__left {
     position: sticky;
     top: 88px;
     align-self: start;
@@ -111,6 +111,10 @@
     @media (max-width: 860px) {
       position: static;
     }
+  }
+
+  &__ingredients {
+    // contained inside __left
   }
 
   &__controls {
@@ -210,6 +214,32 @@
 
   &__item {
     color: var(--ml-fg);
+  }
+
+  &__copy-btn {
+    margin-top: 1.25rem;
+    width: 100%;
+    padding: 0.6rem 1rem;
+    border: 1.5px solid var(--ml-border);
+    border-radius: 999px;
+    background: var(--ml-surface);
+    color: var(--ml-muted);
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    transition: border-color 0.15s, background 0.15s, color 0.15s;
+
+    &:hover {
+      border-color: var(--ml-accent);
+      background: var(--ml-accent-soft);
+      color: var(--ml-fg);
+    }
+
+    &--copied {
+      border-color: var(--ml-accent);
+      background: var(--ml-accent-soft);
+      color: var(--ml-accent);
+    }
   }
 
   &__step-list {

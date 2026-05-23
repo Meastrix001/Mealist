@@ -1,0 +1,29 @@
+.allergens {
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--ml-border);
+
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  &__badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.3rem 0.75rem;
+    background: #fff8ed;
+    border: 1px solid #f5d89a;
+    border-radius: 999px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #92600a;
+  }
+
+  &__icon {
+    font-size: 0.9rem;
+    line-height: 1;
+  }
+}

@@ -44,10 +44,28 @@
     color: var(--ml-fg);
     opacity: 0.8;
     transition: opacity 0.15s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
 
     &:hover {
       opacity: 1;
       color: var(--ml-accent);
     }
+  }
+
+  &__badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 1.25rem;
+    height: 1.25rem;
+    padding: 0 0.3rem;
+    background: var(--ml-accent);
+    color: #fff;
+    border-radius: 999px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    line-height: 1;
   }
 }
