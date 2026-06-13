@@ -6,7 +6,7 @@ import RecipeCard from "@/components/recipes/RecipeCard/RecipeCard";
 
 const PROTEIN_TAGS = ["chicken", "beef", "pork", "fish", "seafood", "vegetarian", "vegan"] as const;
 const MEAL_TAGS = ["breakfast", "lunch", "dinner", "snack"] as const;
-const CUISINE_TAGS = ["italian", "mexican", "asian", "mediterranean", "american", "indian", "french", "middle-eastern"] as const;
+const CUISINE_TAGS = ["italian", "mexican", "asian", "mediterranean", "american", "indian", "french", "middle-eastern", "british", "german", "spanish"] as const;
 
 type Group = "all" | "meal" | "protein" | "cuisine";
 
